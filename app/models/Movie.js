@@ -17,6 +17,30 @@ const MovieSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  categories: {
+    type: Array,
+    required: false
+  },
+  directors: {
+    type: Array,
+    required: false
+  },
+  runtime: {
+    type: String,
+    required: false
+  },
+  tagline: {
+    type: String,
+    required: false
+  },
+  budget: {
+    type: String,
+    required: false
+  },
+  revenue: {
+    type: String,
+    required: false
+  },
   owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',

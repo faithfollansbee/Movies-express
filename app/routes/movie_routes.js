@@ -33,7 +33,6 @@ const router = express.Router()
 //     .catch(next)
 // })
 
-// same as recipe app
 // INDEX
 router.get('/movies', requireToken, (req, res, next) => {
   Movie.find({ owner: req.user.id })

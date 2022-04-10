@@ -14,7 +14,11 @@ curl "${API}${URL_PATH}/${ID}" \
       "description": "'"${DESCRIPTION}"'",
       "released": "'"${RELEASED}"'",
       "image": "'"${IMAGE}"'",
-      "genre": "'"${GENRE}"'"
+      "genre": "'"${GENRE}"'",
+      "categories": "'"${CATEGORIES}"'",
+      "directors": "'"${DIRECTORS}"'",
+      "runtime": "'"${RUNTIME}"'",
+      "tagline": "'"${TAGLINE}"'"
     }
   }'
 
