@@ -1,5 +1,8 @@
 # Created by https://www.gitignore.io/api/macos,linux
-
+seeds.js
+data/
+lib
+movies.json
 ### macOS ###
 *.DS_Store
 .AppleDouble
@@ -96,6 +99,7 @@ jspm_packages
 
 # Environmental variables
 .env
+demo.js
 
 # End of https://www.gitignore.io/api/node
 *.bak

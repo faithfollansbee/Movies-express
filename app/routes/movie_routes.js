@@ -35,6 +35,7 @@ const router = express.Router()
 
 // INDEX
 router.get('/movies', requireToken, (req, res, next) => {
+  // require('movies.json')
   Movie.find({ owner: req.user.id })
     .populate('owner')
     // .populate({
