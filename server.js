@@ -20,6 +20,7 @@ const requestLogger = require('./lib/request_logger')
 // require database configuration logic
 // `db` will be the actual Mongo URI as a string
 const db = require('./config/db')
+const currentDb = require('./config/db')
 
 // require configured passport authentication middleware
 const auth = require('./lib/auth')
@@ -70,28 +71,28 @@ app.use((req, res, next) => {
   next()
 })
 
-const apiKey = process.env.API_KEY
-const apiUrl = process.env.apiUrl
+// const apiKey = process.env.API_KEY
+// const apiUrl = process.env.apiUrl
 
-app.get('/api/movies', (req, res, next) => {
-  axios.get(`${apiUrl}/movie/popular${apiKey}`)
-    .then(response => { res.status(200).json(response.data) })
-    .catch((response) => {
-      if (response.status === undefined) {
-        console.log('unauthorized')
-      }
-    })
-})
+// app.get('/api/movies', (req, res, next) => {
+//   axios.get(`${apiUrl}/movie/popular${apiKey}`)
+//     .then(response => { res.status(200).json(response.data) })
+//     .catch((response) => {
+//       if (response.status === undefined) {
+//         console.log('unauthorized')
+//       }
+//     })
+// })
 
-app.get('/api/movies', (req, res, next) => {
-  axios.get(`${apiUrl}/search/movie/${apiKey}/`)
-    .then(response => { res.status(200).json(response.data) })
-    .catch((response) => {
-      if (response.status === undefined) {
-        console.log('unauthorized')
-      }
-    })
-})
+// app.get('/api/movies', (req, res, next) => {
+//   axios.get(`${apiUrl}/search/movie/${apiKey}/`)
+//     .then(response => { res.status(200).json(response.data) })
+//     .catch((response) => {
+//       if (response.status === undefined) {
+//         console.log('unauthorized')
+//       }
+//     })
+// })
 
 // register passport authentication middleware
 app.use(auth)
