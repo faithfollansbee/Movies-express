@@ -2,7 +2,7 @@ const express = require('express')
 
 const passport = require('passport')
 
-const Movie = require('../models/movie')
+const Movie = require('../models/moviess')
 
 const customErrors = require('../../lib/custom_errors')
 

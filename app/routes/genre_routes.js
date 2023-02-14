@@ -5,7 +5,7 @@ const passport = require('passport')
 
 // pull in Mongoose model for examples
 const Genre = require('../models/genre')
-const Movie = require('../models/movie')
+const Movie = require('../models/moviess')
 // this is a collection of methods that help us detect situations when we need
 // to throw a custom error
 const customErrors = require('../../lib/custom_errors')
