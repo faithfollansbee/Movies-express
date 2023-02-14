@@ -1,8 +1,8 @@
 const express = require('express')
 
-const Movie = require('../models/movie')
-
 const passport = require('passport')
+
+const Movie = require('../models/movie')
 
 const customErrors = require('../../lib/custom_errors')
 
