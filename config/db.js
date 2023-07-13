@@ -5,8 +5,8 @@ const mongooseBaseName = 'express-api-template'
 
 // create the mongodb uri for development and test
 const database = {
-  development: `mongodb://localhost/${mongooseBaseName}-development`,
-  test: `mongodb://localhost/${mongooseBaseName}-test`
+  development: `mongodb://db/${mongooseBaseName}-development`,
+  test: `mongodb://db/${mongooseBaseName}-test`
 }
 
 // Identify if development environment is test or development

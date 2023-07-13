@@ -70,10 +70,69 @@ app.use((req, res, next) => {
   }
   next()
 })
+// const axios = require('axios');
+
+// app.get('/trending', async (req, res) => {
+//   try {
+//     const apiKey = process.env.API_KEY;
+//     const apiUrl = `https://api.themoviedb.org/3/trending/movie/week?api_key=${apiKey}&language=en-US`;
+//     const response = await axios.get(apiUrl, {
+//       headers: {
+//         'Authorization': `Bearer ${apiKey}`,
+//         'Content-Type': 'application/json',
+//       },
+//     });
+
+//     res.json(response.data);
+//     console.log(response.data)
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ error: 'Internal Server Error' });
+//   }
+// });
+
+app.get('/trending', (req, res, next) => {
+    const axios = require('axios')
+    const apiKey = process.env.API_KEY
+    const apiUrl = 'https://api.themoviedb.org/3/trending/movie/week'
+    axios.get(`${apiUrl}?api_key=${apiKey}&language=en-US`)
+      .then(response => { res.status(200).json(response.data) })
+      .catch(error => {
+        console.log(error)
+        res.status(500).json({ error: error })
+      })
+  })
+
+app.listen(3001, () => {
+  console.log('Server is running on port 3001');
+});
+
+// this works, 7/12/23
+// app.get('/trending', (req, res, next) => {
+//   const axios = require('axios')
+//   const apiKey = process.env.API_KEY
+//   const apiUrl = 'https://api.themoviedb.org/3/trending/movie/week'
+//   axios.get(`${apiUrl}?api_key=${apiKey}&language=en-US`)
+//     .then(response => { res.status(200).json(response.data) })
+//     .catch(error => {
+//       console.log(error)
+//       res.status(500).json({ error: error })
+//     })
+// })
 
 // const apiKey = process.env.API_KEY
 // const apiUrl = process.env.apiUrl
-
+// app.get('/trending', (req, res, next) => {
+//   const apiKey = '4a0223110b505876ba0985949c17e865'
+//   const apiUrl = 'https://api.themoviedb.org/3/trending/movie/week'
+//   axios.get(`${apiUrl}?api_key=${apiKey}&language=en-US`)
+//     .then(response => { res.status(200).json(response.data) })
+//       console.log(data)
+//     .catch((error) => {
+//       console.log(error)
+//       res.status(500).json({ error: error })
+//     })
+// })
 // app.get('/api/movies', (req, res, next) => {
 //   axios.get(`${apiUrl}/movie/popular${apiKey}`)
 //     .then(response => { res.status(200).json(response.data) })
